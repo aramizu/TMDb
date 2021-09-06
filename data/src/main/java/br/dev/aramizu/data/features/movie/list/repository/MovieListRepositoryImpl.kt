@@ -8,5 +8,7 @@ internal class MovieListRepositoryImpl(
     private val remoteDataSource: MovieListRemoteDataSource
 ): MovieListRepository {
 
-    override fun getNowPlaying(): Single<MoviesResponse> = remoteDataSource.getNowPlaying()
+    override fun getMovieList(trend: String): Single<MoviesResponse> {
+        return remoteDataSource.getMovieList(trend)
+    }
 }

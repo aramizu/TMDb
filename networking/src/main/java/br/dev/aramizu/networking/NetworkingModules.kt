@@ -32,6 +32,7 @@ private fun retrofit(): Retrofit {
         
         val url = originalHttpUrl.newBuilder()
             .addQueryParameter("api_key", apiKey)
+            .addQueryParameter("language", "pt-br")
             .build()
 
         val requestBuilder: Request.Builder = originalRequest.newBuilder()

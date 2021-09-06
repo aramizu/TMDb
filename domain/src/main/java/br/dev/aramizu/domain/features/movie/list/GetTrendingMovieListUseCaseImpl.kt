@@ -5,11 +5,13 @@ import br.dev.aramizu.domain.features.movie.list.mappers.MovieListMapper
 import br.dev.aramizu.domain.features.movie.list.models.Movies
 import io.reactivex.rxjava3.core.Single
 
-internal class GetMovieListUseCaseImpl(
+internal class GetTrendingMovieListUseCaseImpl(
     private val repository: MovieListRepository,
     private val mapper: MovieListMapper
-): GetMovieListUseCase {
+): GetTrendingMovieListUseCase {
 
-    override fun getNowPlaying(): Single<Movies> = repository.getNowPlaying()
-        .map(mapper::map)
+    override operator fun invoke(trendClassification: String): Single<Movies> {
+        return repository.getMovieList(trendClassification)
+            .map(mapper::map)
+    }
 }

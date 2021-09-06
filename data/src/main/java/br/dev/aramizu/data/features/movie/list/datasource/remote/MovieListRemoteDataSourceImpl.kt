@@ -8,5 +8,5 @@ internal class MovieListRemoteDataSourceImpl(
     private val service: MovieListService
 ) : MovieListRemoteDataSource {
 
-    override fun getNowPlaying(): Single<MoviesResponse> = service.getNowPlaying()
+    override fun getMovieList(trend: String): Single<MoviesResponse> = service.getMovieList(trend)
 }

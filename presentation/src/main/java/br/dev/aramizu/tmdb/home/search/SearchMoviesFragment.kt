@@ -1,4 +1,4 @@
-package br.dev.aramizu.tmdb.home
+package br.dev.aramizu.tmdb.home.search
 
 import br.dev.aramizu.tmdb.databinding.FragmentSearchBinding
 import android.os.Bundle

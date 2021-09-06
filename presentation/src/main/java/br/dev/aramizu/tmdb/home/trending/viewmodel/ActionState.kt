@@ -1,4 +1,4 @@
-package br.dev.aramizu.tmdb.home.viewmodel
+package br.dev.aramizu.tmdb.home.trending.viewmodel
 
 sealed class ActionState {
     object ShowToast : ActionState()

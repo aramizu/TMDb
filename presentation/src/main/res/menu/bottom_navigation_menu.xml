@@ -5,10 +5,10 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_now_playing"
+            android:id="@+id/nav_trending"
             android:checked="true"
             android:icon="@drawable/ic_tv_play"
-            android:title="@string/menu_now_playing_title" />
+            android:title="@string/menu_trending_title" />
         <item
             android:id="@+id/nav_search"
             android:icon="@drawable/ic_magnify"

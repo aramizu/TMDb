@@ -1,4 +1,4 @@
-package br.dev.aramizu.tmdb.home
+package br.dev.aramizu.tmdb.home.favourites
 
 import android.os.Bundle
 import android.view.LayoutInflater
