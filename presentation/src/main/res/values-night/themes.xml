@@ -15,5 +15,5 @@
     </style>
 
     <color name="bottomNavBackground">@color/black</color>
-    <color name="bottomNavDivisor">@color/grey</color>
+    <color name="bottomNavDivisor">@color/yellow_200</color>
 </resources>
