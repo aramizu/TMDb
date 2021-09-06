@@ -10,8 +10,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import okhttp3.Interceptor
 import okhttp3.HttpUrl
 import okhttp3.Request
-import org.koin.android.BuildConfig
-import java.util.*
 
 val networkingModule = module {
     factory {
@@ -21,22 +19,22 @@ val networkingModule = module {
 
 private fun retrofit(): Retrofit {
     val logging = HttpLoggingInterceptor()
-    val baseUrl = br.dev.aramizu.networking.BuildConfig.baseUrl
+    val baseUrl = BuildConfig.baseUrl
     val httpClient = OkHttpClient.Builder()
 
     logging.level = HttpLoggingInterceptor.Level.BODY
 
     httpClient.addInterceptor(logging)
     httpClient.interceptors().add( Interceptor { chain ->
-        val original: Request = chain.request()
-        val originalHttpUrl: HttpUrl = original.url()
-        val apiKey = br.dev.aramizu.networking.BuildConfig.api_key
+        val originalRequest: Request = chain.request()
+        val originalHttpUrl: HttpUrl = originalRequest.url()
+        val apiKey = BuildConfig.api_key
         
         val url = originalHttpUrl.newBuilder()
             .addQueryParameter("api_key", apiKey)
             .build()
 
-        val requestBuilder: Request.Builder = original.newBuilder()
+        val requestBuilder: Request.Builder = originalRequest.newBuilder()
             .url(url)
 
         val request: Request = requestBuilder.build()
