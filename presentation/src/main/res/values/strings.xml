@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TMDB</string>
+
+    <!-- Bottom Nav Menu -->
+    <string name="menu_favourite_title">Favoritos</string>
+    <string name="menu_now_playing_title">Now Playing</string>
+    <string name="menu_search_title">Busca</string>
 </resources>
