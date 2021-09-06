@@ -7,9 +7,7 @@
     android:textColor="@color/black"
     android:background="@drawable/trend_item_shape_ripple"
     android:gravity="center"
-    android:padding="16dp"
-    android:layout_marginVertical="8dp"
-    android:layout_marginLeft="8dp"
-    android:layout_marginStart="8dp"
+    android:padding="12dp"
+    android:layout_margin="8dp"
     android:elevation="8dp"
     tools:text="Popular" />

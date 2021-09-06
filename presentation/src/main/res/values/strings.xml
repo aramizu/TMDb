@@ -3,11 +3,11 @@
 
     <!-- Bottom Nav Menu -->
     <string name="menu_favourite_title">Favoritos</string>
-    <string name="menu_trending_title">Trending</string>
+    <string name="menu_trending_title">Tendência</string>
     <string name="menu_search_title">Busca</string>
 
     <!-- Trending Classification Description -->
-    <string name="trend_now_playing">Now Playing</string>
+    <string name="trend_now_playing">Em cartaz</string>
     <string name="trend_popular">Popular</string>
     <string name="trend_top_rated">Mais votados</string>
     <string name="trend_upcoming">Breve</string>
