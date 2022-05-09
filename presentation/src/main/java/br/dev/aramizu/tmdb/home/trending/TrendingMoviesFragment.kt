@@ -4,11 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import br.dev.aramizu.domain.features.movie.list.enums.TrendType
+import br.dev.aramizu.domain.features.movie.list.models.Movie
 import br.dev.aramizu.tmdb.databinding.FragmentTrendingBinding
+import br.dev.aramizu.tmdb.home.trending.adapter.MovieListAdapter
 import br.dev.aramizu.tmdb.home.trending.adapter.TrendListAdapter
 import br.dev.aramizu.tmdb.home.trending.viewmodel.ActionState
 import br.dev.aramizu.tmdb.home.trending.viewmodel.TrendingViewModel
@@ -21,10 +22,15 @@ class TrendingMoviesFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: TrendingViewModel by viewModel()
+
     private val onTrendItemClickListener: (TrendType) -> Unit = { type ->
         viewModel.getMovieList(type)
     }
+    private val onMovieItemClickListener: (Movie) -> Unit = { movie ->
+
+    }
     private val trendListAdapter = TrendListAdapter(onTrendItemClickListener)
+    private val movieListAdapter = MovieListAdapter(onMovieItemClickListener)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,10 +55,10 @@ class TrendingMoviesFragment : Fragment() {
     private fun setUpObservation() {
         viewModel.viewState.observe(viewLifecycleOwner, Observer { state ->
             when (state) {
-                is ViewState.ShowContent -> {
-
+                is ViewState.ShowMovies -> {
+                    movieListAdapter.submitList(state.content.list)
                 }
-                is ViewState.ShowTrend -> {
+                is ViewState.ShowTrendTypes -> {
                     trendListAdapter.submitList(state.trendList)
                 }
             }

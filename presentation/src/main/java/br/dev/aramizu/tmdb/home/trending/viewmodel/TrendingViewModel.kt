@@ -25,7 +25,7 @@ class TrendingViewModel(
     }
 
     private fun getTrendList() {
-        viewState.value = ViewState.ShowTrend(
+        viewState.value = ViewState.ShowTrendTypes(
             getTrendClassificationUseCase()
         )
     }
@@ -34,8 +34,8 @@ class TrendingViewModel(
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(
-            { movie ->
-
+            { movies ->
+                viewState.value = ViewState.ShowMovies(movies)
             },
             { e ->
                 e.printStackTrace()
